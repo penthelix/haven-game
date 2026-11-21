@@ -44,4 +44,6 @@ visible = false
 position = Vector2(1162, 324)
 shape = SubResource("RectangleShape2D_w3tx4")
 
-[node name="CharacterBody2D" parent="." unique_id=388926680 instance=ExtResource("3_epypp")]
+[node name="Player" parent="." unique_id=388926680 instance=ExtResource("3_epypp")]
+position = Vector2(47, 596)
+scale = Vector2(2, 2)
