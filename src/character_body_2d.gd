@@ -4,10 +4,12 @@ const SPEED = 300.0
 
 func _ready() -> void:
 	# Choose pos
+	var width =  get_viewport_rect().size.x
+	var height = get_viewport_rect().size.y
 	@warning_ignore("narrowing_conversion")
-	var x_coord = randi_range(0, get_viewport_rect().size.x)
+	var x_coord = randi_range(0.1 * width, 0.9 * width)
 	@warning_ignore("narrowing_conversion")
-	var y_coord = randi_range(0, get_viewport_rect().size.y)
+	var y_coord = randi_range(0.1 * height, 0.9 * height)
 	position = Vector2(x_coord, y_coord)
 
 	# Choose dir
