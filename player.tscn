@@ -75,8 +75,7 @@ script = ExtResource("1_onrkg")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_3id20")
 animation = &"run"
-autoplay = "idle"
-frame_progress = 0.020262605
+autoplay = "run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1932999665]
 position = Vector2(2.5, 0.5)
