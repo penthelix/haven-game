@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bw45mpa1o6tnu"]
 
-[ext_resource type="Texture2D" uid="uid://q5d2sv0xyqtv" path="res://assets/img/dvd-logo.png" id="1_f50pn"]
+[ext_resource type="Texture2D" uid="uid://b1deja0v6xyca" path="res://assets/img/dvd_logo.png" id="1_f50pn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3id20"]
 size = Vector2(462, 200)

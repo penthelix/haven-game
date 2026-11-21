@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q5d2sv0xyqtv"
-path="res://.godot/imported/dvd-logo.png-6a32d158893d3efa2f67dd694bfdb497.ctex"
+uid="uid://ba36uv1uuv3v7"
+path="res://.godot/imported/scoreboard.png-fd0322fa58a6977a021a8c0ba611c8b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/dvd-logo.png"
-dest_files=["res://.godot/imported/dvd-logo.png-6a32d158893d3efa2f67dd694bfdb497.ctex"]
+source_file="res://assets/img/scoreboard.png"
+dest_files=["res://.godot/imported/scoreboard.png-fd0322fa58a6977a021a8c0ba611c8b2.ctex"]
 
 [params]
 
