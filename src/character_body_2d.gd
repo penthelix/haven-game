@@ -4,7 +4,9 @@ const SPEED = 300.0
 
 func _ready() -> void:
 	# Choose pos
+	@warning_ignore("narrowing_conversion")
 	var x_coord = randi_range(0, get_viewport_rect().size.x)
+	@warning_ignore("narrowing_conversion")
 	var y_coord = randi_range(0, get_viewport_rect().size.y)
 	position = Vector2(x_coord, y_coord)
 
