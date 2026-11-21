@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://qyx8twbolsra"]
 
 [ext_resource type="PackedScene" uid="uid://bw45mpa1o6tnu" path="res://character_body_2d.tscn" id="1_wtcfe"]
-[ext_resource type="Texture2D" uid="uid://cg81n2sykevke" path="res://assets/img/tvscreen_overlay.png" id="3_0hol4"]
+[ext_resource type="Texture2D" uid="uid://cg81n2sykevke" path="res://assets/images/overlays/tvscreen_overlay.png" id="3_0hol4"]
 [ext_resource type="PackedScene" uid="uid://upo7nix2ibgj" path="res://player.tscn" id="3_epypp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ncyx7"]

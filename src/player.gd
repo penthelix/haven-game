@@ -11,10 +11,6 @@ func _physics_process(_delta: float) -> void:
 	if dead:
 		return
 
-<<<<<<< Updated upstream
-func _physics_process(_delta: float) -> void:
-=======
->>>>>>> Stashed changes
 	var direction := Vector2(
 		Input.get_axis("left", "right"),
 		Input.get_axis("up", "down")
