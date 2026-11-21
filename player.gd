@@ -5,7 +5,7 @@ const SPEED = 300.0
 @onready var anim := $AnimatedSprite2D
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var direction := Vector2(
 		Input.get_axis("left", "right"),
 		Input.get_axis("up", "down")
