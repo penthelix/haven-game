@@ -5,7 +5,18 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 func _ready() -> void:
-	velocity = Vector2(1, -1).normalized() * SPEED
+	# Choose pos
+	var x_coord = randi_range(0, get_viewport_rect().size.x)
+	var y_coord = randi_range(0, get_viewport_rect().size.y)
+	position = Vector2(x_coord, y_coord)
+
+	# Choose dir
+	var rotations = floor(randf_range(0, 4))
+	var dir = Vector2(1, 1).normalized()
+	while rotations > 0:
+		dir.rotated(PI/2)
+		rotations -=1
+	velocity = dir * SPEED
 
 
 func _physics_process(delta: float) -> void:
