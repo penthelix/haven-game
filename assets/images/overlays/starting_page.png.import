@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba36uv1uuv3v7"
-path="res://.godot/imported/scoreboard.png-fd0322fa58a6977a021a8c0ba611c8b2.ctex"
+uid="uid://yupj1kltyskp"
+path="res://.godot/imported/starting_page.png-a00557e2197cacc8051e737f10472a4b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/scoreboard.png"
-dest_files=["res://.godot/imported/scoreboard.png-fd0322fa58a6977a021a8c0ba611c8b2.ctex"]
+source_file="res://assets/images/overlays/starting_page.png"
+dest_files=["res://.godot/imported/starting_page.png-a00557e2197cacc8051e737f10472a4b.ctex"]
 
 [params]
 

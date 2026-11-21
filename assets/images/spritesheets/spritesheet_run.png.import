@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgi4xn8kd45c1"
-path="res://.godot/imported/spritesheet_lose.png-0805c2167ab3816aa79982fb9be38354.ctex"
+uid="uid://bxfwf7wi6g831"
+path="res://.godot/imported/spritesheet_run.png-9b90477d4c7f42a587a685666a98a1b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/spritesheet_lose.png"
-dest_files=["res://.godot/imported/spritesheet_lose.png-0805c2167ab3816aa79982fb9be38354.ctex"]
+source_file="res://assets/images/spritesheets/spritesheet_run.png"
+dest_files=["res://.godot/imported/spritesheet_run.png-9b90477d4c7f42a587a685666a98a1b0.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmbd81dx3g212"
-path="res://.godot/imported/spikes.png-9737964e983f1b98fe66beab00f3c7a8.ctex"
+uid="uid://beyenevrfnirv"
+path="res://.godot/imported/Game interface (1).png-f1db69095f2c936cb8bcaecfc4d727ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/spikes.png"
-dest_files=["res://.godot/imported/spikes.png-9737964e983f1b98fe66beab00f3c7a8.ctex"]
+source_file="res://assets/images/overlays/Game interface (1).png"
+dest_files=["res://.godot/imported/Game interface (1).png-f1db69095f2c936cb8bcaecfc4d727ac.ctex"]
 
 [params]
 

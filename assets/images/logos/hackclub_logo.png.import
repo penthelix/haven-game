@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg81n2sykevke"
-path="res://.godot/imported/tvscreen_overlay.png-cd021ed14af421f1e458f65066f4e737.ctex"
+uid="uid://c3uf06vsrc3uk"
+path="res://.godot/imported/hackclub_logo.png-ea073b2e81eed55f55d859cc54b38023.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/tvscreen_overlay.png"
-dest_files=["res://.godot/imported/tvscreen_overlay.png-cd021ed14af421f1e458f65066f4e737.ctex"]
+source_file="res://assets/images/logos/hackclub_logo.png"
+dest_files=["res://.godot/imported/hackclub_logo.png-ea073b2e81eed55f55d859cc54b38023.ctex"]
 
 [params]
 

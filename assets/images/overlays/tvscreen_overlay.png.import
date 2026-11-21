@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1deja0v6xyca"
-path="res://.godot/imported/dvd_logo.png-f80c64c100af82fe9ea456aa9bcaf1d6.ctex"
+uid="uid://cg81n2sykevke"
+path="res://.godot/imported/tvscreen_overlay.png-958043729b4392cc9e0b3d7a13c22ab7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/dvd_logo.png"
-dest_files=["res://.godot/imported/dvd_logo.png-f80c64c100af82fe9ea456aa9bcaf1d6.ctex"]
+source_file="res://assets/images/overlays/tvscreen_overlay.png"
+dest_files=["res://.godot/imported/tvscreen_overlay.png-958043729b4392cc9e0b3d7a13c22ab7.ctex"]
 
 [params]
 
