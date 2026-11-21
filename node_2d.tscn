@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://qyx8twbolsra"]
 
 [ext_resource type="PackedScene" uid="uid://bw45mpa1o6tnu" path="res://character_body_2d.tscn" id="1_wtcfe"]
-[ext_resource type="Script" uid="uid://cu6x8nf87feaw" path="res://collision_shape_2d.gd" id="2_0e48y"]
+[ext_resource type="Script" path="res://collision_shape_2d.gd" id="2_0e48y"]
+[ext_resource type="PackedScene" uid="uid://upo7nix2ibgj" path="res://player.tscn" id="3_epypp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ncyx7"]
 size = Vector2(1152, 20)
@@ -15,6 +16,7 @@ size = Vector2(20, 648)
 position = Vector2(323, 214)
 
 [node name="Top" type="CharacterBody2D" parent="." unique_id=841494582]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top" unique_id=955815503]
 position = Vector2(576, -10)
@@ -22,19 +24,24 @@ shape = SubResource("RectangleShape2D_ncyx7")
 script = ExtResource("2_0e48y")
 
 [node name="Bottom" type="CharacterBody2D" parent="." unique_id=1102481722]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom" unique_id=1816490698]
 position = Vector2(576, 658)
 shape = SubResource("RectangleShape2D_ncyx7")
 
 [node name="Left" type="CharacterBody2D" parent="." unique_id=1235712963]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left" unique_id=729686546]
 position = Vector2(-10, 324)
 shape = SubResource("RectangleShape2D_w3tx4")
 
 [node name="Right" type="CharacterBody2D" parent="." unique_id=806760461]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right" unique_id=1705819700]
 position = Vector2(1162, 324)
 shape = SubResource("RectangleShape2D_w3tx4")
+
+[node name="CharacterBody2D" parent="." unique_id=388926680 instance=ExtResource("3_epypp")]
