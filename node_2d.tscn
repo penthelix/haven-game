@@ -874,8 +874,8 @@ position = Vector2(1162, 324)
 shape = SubResource("RectangleShape2D_w3tx4")
 
 [node name="Player" parent="." unique_id=388926680 instance=ExtResource("3_epypp")]
-position = Vector2(47, 596)
-scale = Vector2(2, 2)
+position = Vector2(153, 471)
+scale = Vector2(0.5, 0.5)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1507778090]
 scale = Vector2(1.75, 1.75)

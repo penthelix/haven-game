@@ -1,8 +1,6 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 
 func _ready() -> void:
 	# Choose pos
@@ -20,6 +18,10 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	var data = move_and_collide(velocity*delta)
+	var data = move_and_collide(velocity * delta)
 	if data:
 		velocity = velocity.bounce(data.get_normal())
+		# If we hit the player, trigger their lose state
+		var collider = data.get_collider()
+		if collider.has_method("_on_hit_logo"):
+			collider._on_hit_logo()
