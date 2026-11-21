@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bw45mpa1o6tnu"]
+
+[ext_resource type="Texture2D" uid="uid://q5d2sv0xyqtv" path="res://assets/img/dvd-logo.png" id="1_f50pn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3id20"]
+size = Vector2(462, 200)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=44697262]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=459957231]
+position = Vector2(-6, 11)
+shape = SubResource("RectangleShape2D_3id20")
+
+[node name="DvdLogo" type="Sprite2D" parent="." unique_id=2068705537]
+texture = ExtResource("1_f50pn")
