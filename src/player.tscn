@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://upo7nix2ibgj"]
 
-[ext_resource type="Texture2D" uid="uid://bxfwf7wi6g831" path="res://assets/img/spritesheet_run.png" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://bxfwf7wi6g831" path="res://assets/images/spritesheets/spritesheet_run.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://dhwp6h813f1q4" path="res://player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://bgi4xn8kd45c1" path="res://assets/img/spritesheet_lose.png" id="3_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://bgi4xn8kd45c1" path="res://assets/images/spritesheets/spritesheet_lose.png" id="3_i3pqv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_606se"]
 atlas = ExtResource("1_4flbx")
@@ -87,7 +87,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"lose",
-"speed": 4.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -126,7 +126,8 @@ position = Vector2(-1, 3)
 sprite_frames = SubResource("SpriteFrames_3id20")
 animation = &"lose"
 autoplay = "run"
-frame_progress = 0.6293237
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1932999665]
 position = Vector2(7.5, 8)

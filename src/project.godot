@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="dvd"
+run/main_scene="uid://qyx8twbolsra"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
