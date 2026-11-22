@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://b4srh1hothn5x"]
+
+[ext_resource type="Texture2D" uid="uid://ba36uv1uuv3v7" path="res://assets/images/overlays/scoreboard.png" id="2_f42by"]
+[ext_resource type="Texture2D" uid="uid://dy08l2uncolj4" path="res://assets/images/overlays/Game interface.png" id="2_start_bg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+bg_color = Color(0.141176, 0.180392, 0.239216, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35, 0.45, 0.55, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+bg_color = Color(0.0980392, 0.129412, 0.176471, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.5, 0.6, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+bg_color = Color(0.219608, 0.301961, 0.407843, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.55, 0.7, 0.85, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="UIOverlay" type="CanvasLayer" unique_id=268207563]
+process_mode = 3
+layer = 10
+
+[node name="StartScreen" type="Control" parent="." unique_id=792599655]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="StartScreen" unique_id=187303137]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_start_bg")
+expand_mode = 1
+
+[node name="StartButton" type="Button" parent="StartScreen" unique_id=1824164089]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.393
+anchor_top = 0.639
+anchor_right = 0.568
+anchor_bottom = 0.71
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="PromptLabel" type="Label" parent="StartScreen" unique_id=266781222]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.73
+anchor_right = 0.75
+anchor_bottom = 0.78
+theme_override_colors/font_color = Color(0.2, 0.25, 0.32, 0.95)
+theme_override_font_sizes/font_size = 18
+text = "[ Click Start or Press SPACE to Play ]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverScreen" type="Control" parent="." unique_id=1184987358]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background 1" type="TextureRect" parent="GameOverScreen" unique_id=1563061881]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_f42by")
+
+[node name="CardContent" type="Control" parent="GameOverScreen" unique_id=1274577898]
+layout_mode = 1
+anchor_left = 0.29730904
+anchor_top = 0.111913614
+anchor_right = 0.70269096
+anchor_bottom = 0.8880864
+offset_left = -16.5
+offset_top = 52.47998
+offset_right = -16.5
+offset_bottom = -100.47998
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HeaderLabel" type="Label" parent="GameOverScreen/CardContent" unique_id=661832359]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.14, 0.18, 0.26, 1)
+theme_override_font_sizes/font_size = 36
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="GameOverScreen/CardContent" unique_id=1380990896]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 60.0
+offset_bottom = 110.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.12, 0.16, 0.24, 1)
+theme_override_font_sizes/font_size = 30
+text = "SCORE: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="GameOverScreen/CardContent" unique_id=1845741623]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 150.0
+offset_right = 22.0
+offset_bottom = 189.95999
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.24, 0.32, 0.42, 1)
+theme_override_font_sizes/font_size = 22
+text = "SURVIVED: 0.0s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RoastLabel" type="Label" parent="GameOverScreen/CardContent" unique_id=1269000153]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 175.0
+offset_right = -67.0
+offset_bottom = 250.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.25, 0.32, 0.42, 0.95)
+theme_override_font_sizes/font_size = 17
+text = "\"Cornered by a screensaver. Tragic.\""
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="RestartButton" type="Button" parent="GameOverScreen/CardContent" unique_id=104323434]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 80.0
+offset_top = -42.95996
+offset_right = 246.0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.95, 0.95, 0.98, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "RESTART (SPACE)"

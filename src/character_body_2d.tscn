@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bw45mpa1o6tnu"]
 
-[ext_resource type="Texture2D" uid="uid://b1deja0v6xyca" path="res://assets/img/dvd_logo.png" id="1_f50pn"]
+[ext_resource type="Texture2D" uid="uid://b1deja0v6xyca" path="res://assets/images/logos/dvd_logo.png" id="1_f50pn"]
 [ext_resource type="Script" uid="uid://cqtfdqd1bgf1x" path="res://character_body_2d.gd" id="1_ij6vw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3id20"]

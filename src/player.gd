@@ -1,20 +1,21 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+const SPEED = 350.0
 
-@onready var anim := $AnimatedSprite2D
-@onready var audio_player: AudioStreamPlayer2D = $"../AudioStreamPlayer2D"
+@onready var anim = $AnimatedSprite2D
+@onready var audio_player = $"../AudioStreamPlayer2D"
+@onready var bg_music = $"../BackgroundMusic"
 
-const MY_SOUND = preload("res://assets/sound/loss.mp3")
+const LOSS_SOUND = preload("res://assets/sound/loss.mp3")
 
-var dead := false
-
+var is_active = false
+var dead = false
 
 func _physics_process(_delta: float) -> void:
-	if dead:
+	if dead or not is_active:
 		return
 
-	var direction := Vector2(
+	var direction = Vector2(
 		Input.get_axis("left", "right"),
 		Input.get_axis("up", "down")
 	)
@@ -29,31 +30,22 @@ func _physics_process(_delta: float) -> void:
 
 	move_and_slide()
 
-
 func _on_hit_logo() -> void:
 	if dead:
 		return
 	dead = true
+	is_active = false
 	velocity = Vector2.ZERO
 
-	var bg_music := get_node_or_null("../BackgroundMusic")
-	if bg_music and bg_music is AudioStreamPlayer2D:
-		bg_music.stop()
+	bg_music.stop()
 
-	if audio_player:
-		audio_player.process_mode = Node.PROCESS_MODE_ALWAYS
-		audio_player.global_position = global_position
-		audio_player.stream = MY_SOUND
-		audio_player.play()
+	audio_player.stream = LOSS_SOUND
+	audio_player.play()
+	audio_player.finished.connect(_on_loss_sound_finished)
 
 	anim.play("lose")
 
-	var gm := get_parent()
-	if gm and gm.has_method("notify_game_over"):
-		gm.notify_game_over()
+	get_parent().on_player_hit()
 
-	anim.animation_finished.connect(_freeze_game, CONNECT_ONE_SHOT)
-
-
-func _freeze_game() -> void:
-	get_tree().paused = true
+func _on_loss_sound_finished() -> void:
+	get_parent().show_game_over()

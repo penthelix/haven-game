@@ -1,75 +1,106 @@
 extends Node2D
 
-@onready var player: CharacterBody2D = $Player
+@onready var player = $Player
+@onready var initial_logo = $Logo
+@onready var bg_music = $BackgroundMusic
 
-@onready var initial_logo: CharacterBody2D = $Logo
+@onready var start_screen = $UI/StartScreen
+@onready var start_button = $UI/StartScreen/StartButton
+@onready var game_over_screen = $UI/GameOverScreen
+@onready var score_label = $UI/GameOverScreen/ScoreLabel
+@onready var time_label = $UI/GameOverScreen/TimeLabel
+@onready var roast_label = $UI/GameOverScreen/RoastLabel
+@onready var restart_button = $UI/GameOverScreen/RestartButton
 
-var logo_scene: PackedScene = preload("res://character_body_2d.tscn")
+var logo_scene = preload("res://character_body_2d.tscn")
+var dvd_texture = preload("res://assets/images/logos/dvd_logo.png")
+var hackclub_texture = preload("res://assets/images/logos/hackclub_logo.png")
 
-const DVD_TEXTURE = preload("res://assets/images/logos/dvd_logo.png")
-const HACKCLUB_TEXTURE = preload("res://assets/images/logos/hackclub_logo.png")
+const BASE_SPAWN_INTERVAL := 6
+const MIN_SPAWN_INTERVAL := 4
+const MAX_LOGOS := 12
 
-const BASE_LOGO_SPEED    := 300.0   # pixels/sec for the first logo
-const SPAWN_INTERVAL     := 15.0    # seconds between each new logo
-const MAX_LOGOS          := 6       # max so its nothing crazy
+var is_playing = false
+var time_alive = 0.0
+var score = 0
+var spawn_timer = 0.0
+var logo_count = 1
 
-const DVD_SCALE_MIN      := 1.4
-const DVD_SCALE_MAX      := 2.2
-
-const HACKCLUB_SCALE_MIN := 0.75
-const HACKCLUB_SCALE_MAX := 1.15
-
-var time_alive   := 0.0
-var score        := 0
-var logo_count   := 1               # the initial logo counts as 1
-var spawn_timer  := 0.0
-var game_over    := false
-
+var roasts = [
+	"Cornered by a screensaver. Tragic.",
+	"The logo finally hit the corner... and you.",
+	"Physics: 1. You: 0.",
+	"You had four whole directions to choose from.",
+	"That bounce was completely personal.",
+	"It's just a DVD logo. How hard can it be?",
+	"Did you try not touching it?"
+]
 
 func _ready() -> void:
-	initial_logo.speed_multiplier = 1.0
+	start_screen.visible = true
+	game_over_screen.visible = false
+	start_button.pressed.connect(start_game)
+	restart_button.pressed.connect(restart_game)
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_SPACE or event.keycode == KEY_ENTER:
+			if not is_playing and start_screen.visible:
+				start_game()
+			elif game_over_screen.visible:
+				restart_game()
+
+func start_game() -> void:
+	is_playing = true
+	start_screen.visible = false
+	player.is_active = true
+	initial_logo.is_active = true
+	bg_music.play()
 
 func _process(delta: float) -> void:
-	if game_over:
+	if not is_playing:
 		return
 
-	time_alive  += delta
+	time_alive += delta
 	spawn_timer += delta
+	score = int(time_alive * 10)
 
-	score = int(pow(time_alive, 1.4) * 10)
-
-	if spawn_timer >= SPAWN_INTERVAL and logo_count < MAX_LOGOS:
+	var current_interval = max(MIN_SPAWN_INTERVAL, BASE_SPAWN_INTERVAL - (logo_count - 1) * 0.15)
+	if spawn_timer >= current_interval and logo_count < MAX_LOGOS:
 		spawn_timer = 0.0
-		_spawn_logo()
+		spawn_logo()
 
+func spawn_logo() -> void:
+	var logo = logo_scene.instantiate()
 
-func _spawn_logo() -> void:
-	var logo: CharacterBody2D = logo_scene.instantiate()
+	var is_hackclub = randf() < 0.5
+	var speed_boost = 1.0 + min(time_alive * 0.005, 0.35)
 
-	var is_hackclub := randf() < 0.5
-	var tex: Texture2D = HACKCLUB_TEXTURE if is_hackclub else DVD_TEXTURE
-	logo.logo_texture = tex
-
-	var s: float
 	if is_hackclub:
-		s = randf_range(HACKCLUB_SCALE_MIN, HACKCLUB_SCALE_MAX)
-		var size_factor: float = (s - HACKCLUB_SCALE_MIN) / (HACKCLUB_SCALE_MAX - HACKCLUB_SCALE_MIN)
-		var speed_from_size: float = lerp(1.3, 0.9, size_factor)
-		logo.speed_multiplier = speed_from_size * randf_range(0.9, 1.15)
+		logo.logo_texture = hackclub_texture
+		var s = randf_range(0.8, 1.15)
+		logo.scale = Vector2(s, s)
+		logo.speed_multiplier = randf_range(1.05, 1.35) * speed_boost
 	else:
-		s = randf_range(DVD_SCALE_MIN, DVD_SCALE_MAX)
-		var size_factor: float = (s - DVD_SCALE_MIN) / (DVD_SCALE_MAX - DVD_SCALE_MIN)
-		var speed_from_size: float = lerp(1.3, 0.85, size_factor)
-		logo.speed_multiplier = speed_from_size * randf_range(0.9, 1.15)
+		logo.logo_texture = dvd_texture
+		var s = randf_range(1.3, 1.9)
+		logo.scale = Vector2(s, s)
+		logo.speed_multiplier = randf_range(0.95, 1.25) * speed_boost
 
-	logo.scale = Vector2(s, s)
-
+	logo.is_active = true
 	add_child(logo)
 	logo_count += 1
 
-func notify_game_over() -> void:
-	game_over = true
+func on_player_hit() -> void:
+	is_playing = false
+	for logo in get_tree().get_nodes_in_group("logos"):
+		logo.is_active = false
 
-func get_score() -> int:
-	return score
+func show_game_over() -> void:
+	score_label.text = "SCORE: " + str(score)
+	time_label.text = "SURVIVED: " + str(snappedf(time_alive, 0.1)) + "s"
+	roast_label.text = '"' + roasts.pick_random() + '"'
+	game_over_screen.visible = true
+
+func restart_game() -> void:
+	get_tree().reload_current_scene()

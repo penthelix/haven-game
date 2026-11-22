@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://dp1j0qbyniocd" path="res://assets/sound/background-music.mp3" id="4_0hol4"]
 [ext_resource type="Texture2D" uid="uid://cwgxkmlcl47gg" path="res://assets/images/overlays/Game interface (5).png" id="5_q6r6c"]
 [ext_resource type="AudioStream" uid="uid://cmq8vl27smtgy" path="res://assets/sound/loss.mp3" id="7_d21ai"]
+[ext_resource type="Texture2D" uid="uid://dy08l2uncolj4" path="res://assets/images/overlays/Game interface.png" id="8_start_bg"]
+[ext_resource type="Texture2D" uid="uid://wxi6ks6wy7ub" path="res://assets/images/overlays/Game interface (2).png" id="9_gameover_bg"]
 [ext_resource type="Script" uid="uid://21783kt38n5q" path="res://game_manager.gd" id="gm_script"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kdubu"]
@@ -4491,7 +4493,7 @@ shape = SubResource("RectangleShape2D_w3tx4")
 
 [node name="Player" parent="." unique_id=388926680 instance=ExtResource("3_epypp")]
 position = Vector2(153, 471)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.3, 0.3)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1507778090]
 scale = Vector2(1.75, 1.75)
@@ -4502,8 +4504,166 @@ tile_set = SubResource("TileSet_q17i6")
 position = Vector2(540, 275)
 stream = ExtResource("4_0hol4")
 volume_db = 4.86
-autoplay = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=561366564]
 process_mode = 3
 stream = ExtResource("7_d21ai")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1372714617]
+layer = 10
+
+[node name="StartScreen" type="Control" parent="UI" unique_id=536388514]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="UI/StartScreen" unique_id=21119231]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_start_bg")
+expand_mode = 1
+
+[node name="StartButton" type="Button" parent="UI/StartScreen" unique_id=1030890814]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.393
+anchor_top = 0.639
+anchor_right = 0.568
+anchor_bottom = 0.71
+mouse_default_cursor_shape = 2
+flat = true
+
+[node name="PromptLabel" type="Label" parent="UI/StartScreen" unique_id=1717220708]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.73
+anchor_right = 0.75
+anchor_bottom = 0.78
+theme_override_colors/font_color = Color(0.2, 0.25, 0.32, 0.95)
+theme_override_font_sizes/font_size = 18
+text = "[ Click Start or Press SPACE to Play ]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOverScreen" type="Control" parent="UI" unique_id=37967715]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="UI/GameOverScreen" unique_id=1368480295]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_gameover_bg")
+expand_mode = 1
+
+[node name="HeaderLabel" type="Label" parent="UI/GameOverScreen" unique_id=1642609418]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -215.0
+offset_right = 200.0
+offset_bottom = -165.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.14, 0.18, 0.26, 1)
+theme_override_font_sizes/font_size = 36
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="UI/GameOverScreen" unique_id=1963094371]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -115.0
+offset_right = 200.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.12, 0.16, 0.24, 1)
+theme_override_font_sizes/font_size = 30
+text = "SCORE: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="UI/GameOverScreen" unique_id=209441215]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -60.0
+offset_right = 200.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.24, 0.32, 0.42, 1)
+theme_override_font_sizes/font_size = 22
+text = "SURVIVED: 0.0s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RoastLabel" type="Label" parent="UI/GameOverScreen" unique_id=1242069851]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -5.0
+offset_right = 200.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.25, 0.32, 0.42, 0.95)
+theme_override_font_sizes/font_size = 17
+text = "\"Cornered by a screensaver. Tragic.\""
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="RestartButton" type="Button" parent="UI/GameOverScreen" unique_id=1020662864]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = 100.0
+offset_right = 115.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.95, 0.95, 0.98, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "RESTART (SPACE)"
