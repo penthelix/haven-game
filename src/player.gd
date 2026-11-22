@@ -3,6 +3,9 @@ extends CharacterBody2D
 const SPEED = 300.0
 
 @onready var anim := $AnimatedSprite2D
+@onready var audio_player: AudioStreamPlayer2D = $"../AudioStreamPlayer2D"
+
+const MY_SOUND = preload("res://assets/sound/loss.mp3")
 
 var dead := false
 
@@ -32,8 +35,23 @@ func _on_hit_logo() -> void:
 		return
 	dead = true
 	velocity = Vector2.ZERO
+
+	var bg_music := get_node_or_null("../BackgroundMusic")
+	if bg_music and bg_music is AudioStreamPlayer2D:
+		bg_music.stop()
+
+	if audio_player:
+		audio_player.process_mode = Node.PROCESS_MODE_ALWAYS
+		audio_player.global_position = global_position
+		audio_player.stream = MY_SOUND
+		audio_player.play()
+
 	anim.play("lose")
-	# Play once then freeze — CONNECT_ONE_SHOT auto-disconnects after firing
+
+	var gm := get_parent()
+	if gm and gm.has_method("notify_game_over"):
+		gm.notify_game_over()
+
 	anim.animation_finished.connect(_freeze_game, CONNECT_ONE_SHOT)
 
 

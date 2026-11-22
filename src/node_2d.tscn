@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://upo7nix2ibgj" path="res://player.tscn" id="3_epypp"]
 [ext_resource type="AudioStream" uid="uid://dp1j0qbyniocd" path="res://assets/sound/background-music.mp3" id="4_0hol4"]
 [ext_resource type="Texture2D" uid="uid://cwgxkmlcl47gg" path="res://assets/images/overlays/Game interface (5).png" id="5_q6r6c"]
+[ext_resource type="AudioStream" uid="uid://cmq8vl27smtgy" path="res://assets/sound/loss.mp3" id="7_d21ai"]
+[ext_resource type="Script" uid="uid://21783kt38n5q" path="res://game_manager.gd" id="gm_script"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kdubu"]
 texture = ExtResource("5_q6r6c")
@@ -4446,6 +4448,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_q6r6c")
 
 [node name="Node2D" type="Node2D" unique_id=287957523]
+script = ExtResource("gm_script")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=229399750]
 scale = Vector2(0.8, 0.8)
@@ -4500,3 +4503,7 @@ position = Vector2(540, 275)
 stream = ExtResource("4_0hol4")
 volume_db = 4.86
 autoplay = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=561366564]
+process_mode = 3
+stream = ExtResource("7_d21ai")
