@@ -98,7 +98,7 @@ func on_player_hit() -> void:
 
 func show_game_over() -> void:
 	score_label.text = "SCORE: " + str(score)
-	time_label.text = "SURVIVED: " + str(snappedf(time_alive, 0.1)) + "s"
+	time_label.text = "TIME: " + str(snappedf(time_alive, 0.1)) + "s"
 	roast_label.text = '"' + roasts.pick_random() + '"'
 	game_over_screen.visible = true
 
