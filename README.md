@@ -60,6 +60,13 @@ assets/
 - AnimatedSprite2D with custom spritesheets
 - TileMapLayer for the level background
 
+## Credits
+
+music: "Violin Lose 4" by floraphonic
+background assests: canva ready to use assests
+
+all other assets and sprites were self designed
+
 ## AI Disclosure
 
 An LLM was queried during one collaborative debugging session. Sparing that, no AI was used in the creation of this project.
