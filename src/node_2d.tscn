@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cg81n2sykevke" path="res://assets/images/overlays/tvscreen_overlay.png" id="3_0hol4"]
 [ext_resource type="PackedScene" uid="uid://upo7nix2ibgj" path="res://player.tscn" id="3_epypp"]
 [ext_resource type="AudioStream" uid="uid://dp1j0qbyniocd" path="res://assets/sound/background-music.mp3" id="4_0hol4"]
-[ext_resource type="Texture2D" uid="uid://cwgxkmlcl47gg" path="res://assets/images/overlays/Game interface (5).png" id="5_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://cwgxkmlcl47gg" path="res://assets/images/overlays/background.png" id="5_q6r6c"]
 [ext_resource type="AudioStream" uid="uid://cmq8vl27smtgy" path="res://assets/sound/loss.mp3" id="7_d21ai"]
-[ext_resource type="Texture2D" uid="uid://dy08l2uncolj4" path="res://assets/images/overlays/Game interface.png" id="8_start_bg"]
+[ext_resource type="Texture2D" uid="uid://yhho1g7e50y1" path="res://assets/images/overlays/startscreen.png" id="8_start_bg"]
 [ext_resource type="Texture2D" uid="uid://cqml2craa6rvq" path="res://assets/images/overlays/endscreen.png" id="9_4d7sh"]
 [ext_resource type="Script" uid="uid://21783kt38n5q" path="res://game_manager.gd" id="gm_script"]
 
