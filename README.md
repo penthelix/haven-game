@@ -64,6 +64,7 @@ assets/
 
 music: "Violin Lose 4" by floraphonic
 background assests: canva ready to use assests
+background music: "Fast Chiptune" by NickPanek
 
 all other assets and sprites were self designed
 
